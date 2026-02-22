@@ -15,9 +15,9 @@ cd api_todo/FastAPI-CRUD-Todo
 pytest
 ```
 
-Future Improvements
+## Future Improvements
 
-## Add separate tests for POST, GET, UPDATE, and DELETE endpoints to fully cover the API functionality.
+Add separate tests for POST, GET, UPDATE, and DELETE endpoints to fully cover the API functionality.
 
 # 🎉 FastAPI CRUD Todo with SQLite
 
