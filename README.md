@@ -19,6 +19,8 @@ pytest
 
 Add separate tests for POST, GET, UPDATE, and DELETE endpoints to fully cover the API functionality.
 
+---
+
 # 🎉 FastAPI CRUD Todo with SQLite
 
 ## Overview 📚
