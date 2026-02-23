@@ -8,6 +8,12 @@ I forked this project to practice QA testing.
 - **Technologies used:** Python, pytest.
 - **Test plan is located** in the `tests/` folder.
 - **Tests run using FastAPI TestClient**, so there is **no need to start the server**.
+- **Continuous Integration (CI):** Tests are executed automatically via GitHub Actions workflow:
+  - Installs dependencies from `requirements.txt`
+  - Lints code using `flake8`
+  - Runs all pytest tests
+  - Workflow triggers on push, pull request, and daily cron schedule
+
 - **To run tests:**
 
 ```bash

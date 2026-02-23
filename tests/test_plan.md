@@ -38,6 +38,11 @@ Test the '/todos' API to verify that it handles valid inputs correctly (happy pa
    - Record responses from the API.
    - Verify that the API returns expected status codes ('200' for success, '422' for validation errors).
    - Compare actual responses with expected values.
+   - **Automated tests** are executed via GitHub Actions CI workflow:
+     - Installs dependencies from `requirements.txt`
+     - Lints code using `flake8`
+     - Runs all pytest tests
+     - Workflow triggers on push, pull request, and daily cron schedule
 
 ## 3. Notes
 
