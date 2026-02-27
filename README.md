@@ -3,8 +3,10 @@
 I forked this project to practice QA testing.
 
 - I did **not change the development code**.
-- I created a **parametrized POST test** in the `tests/` folder to cover multiple payload scenarios.
-- I also added a **short note at the top of this README** to explain my work.
+- I created **CRUD API tests** in the `tests/` folder, covering **POST, GET, PUT, and DELETE** endpoints.
+- I also added **invalid update tests** for PUT requests:
+  1. **Nonexistent ID** → expects `404 Todo not found`
+  2. **Existing ID with no JSON body** → expects `422 field required`
 - **Technologies used:** Python, pytest.
 - **Test plan is located** in the `tests/` folder.
 - **Tests run using FastAPI TestClient**, so there is **no need to start the server**.
