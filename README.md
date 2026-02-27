@@ -25,7 +25,7 @@ pytest
 
 ## Future Improvements
 
-Add separate tests for POST, GET, UPDATE, and DELETE endpoints to fully cover the API functionality.
+Add more edge case tests for PUT requests (e.g., invalid field types, empty list of dict, invalid enums).
 
 ---
 
