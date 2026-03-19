@@ -27,7 +27,7 @@ def create_todo():
 
     client.delete(f"/todos/{todo_id}")
 
-def test_put_invalid_title(create_todo):
+def test_put_invalid_status(create_todo):
 
     todo_id = create_todo
 
