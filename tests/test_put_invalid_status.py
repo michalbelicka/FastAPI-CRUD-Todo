@@ -33,8 +33,8 @@ def test_put_invalid_title(create_todo):
 
     put_data = {
         "title": "string",
-        "description": [],
-        "status": "pending"
+        "description": "string",
+        "status": {}
     }
 
     response = client.put(f"/todos/{todo_id}", json=put_data)
@@ -44,7 +44,7 @@ def test_put_invalid_title(create_todo):
     
     assert "detail" in response_json
     assert "body" in response_json["detail"][0]["loc"]
-    assert "description" in response_json["detail"][0]["loc"]
+    assert "status" in response_json["detail"][0]["loc"]
 
     assert response_json["detail"][0]["msg"] == "str type expected"
     assert response_json["detail"][0]["type"] == "type_error.str"
