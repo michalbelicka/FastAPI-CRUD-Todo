@@ -7,6 +7,9 @@ I forked this project to practice QA testing.
 - I also added **invalid update tests** for PUT requests:
   1. **Nonexistent ID** → expects `404 Todo not found`
   2. **Existing ID with no JSON body** → expects `422 field required`
+  3. **Existing ID with invalid fields** → expects `422 type errors`
+     - Invalid title, description, or status individually
+     - All three fields invalid at once
 - **Technologies used:** Python, pytest.
 - **Test plan is located** in the `tests/` folder.
 - **Tests run using FastAPI TestClient**, so there is **no need to start the server**.
@@ -22,10 +25,6 @@ I forked this project to practice QA testing.
 cd api_todo/FastAPI-CRUD-Todo
 pytest
 ```
-
-## Future Improvements
-
-Add more edge case tests for PUT requests (e.g., invalid field types, empty list of dict, invalid enums).
 
 ---
 
