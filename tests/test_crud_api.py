@@ -27,6 +27,18 @@ def create_todo():
     assert isinstance(todo_id, int)
     return todo_id
 
+def test_check_db_after_create(client, db: Session, create_todo):
+
+    todo_id = create_todo
+
+    todo_in_db = db.query(TodoItem).filter(TodoItem.id == todo_id).first()
+
+    assert todo_in_db is not None
+    assert todo_in_db.title == "task"
+    assert todo_in_db.description == "create todo"
+    assert todo_in_db.status == "pending"
+
+
 def test_get_and_valid_update_todo(client, create_todo):
 
     todo_id = create_todo
