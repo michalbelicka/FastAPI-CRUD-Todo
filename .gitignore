@@ -1,1 +1,4 @@
 todo.db
+**/__pycache__/
+venv/
+tests/test_db
