@@ -1,9 +1,12 @@
 import pytest
 from fastapi.testclient import TestClient
-
+from sqlalchemy.orm import Session
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from database.database import get_db
+from models.models import TodoItem
+
 from main import app
 
 client = TestClient(app)
@@ -24,7 +27,7 @@ def create_todo():
     assert isinstance(todo_id, int)
     return todo_id
 
-def test_get_and_valid_update_todo(create_todo):
+def test_get_and_valid_update_todo(client, create_todo):
 
     todo_id = create_todo
 
@@ -59,6 +62,19 @@ def test_get_and_valid_update_todo(create_todo):
     assert isinstance(updated_data["status"], str)
     assert isinstance(updated_data["id"], int)
 
+def test_check_db_after_put(client, db: Session, create_todo):
+
+    todo_id = create_todo
+    
+    todo_in_db = db.query(TodoItem).filter(TodoItem.id == todo_id).first()
+
+    assert todo_in_db is not None
+
+    assert todo_in_db.title == "valid update"
+    assert todo_in_db.description == "valid data"
+    assert todo_in_db.status == "pending"
+   
+
 def test_delete_todo(create_todo):
 
     todo_id = create_todo
@@ -79,5 +95,13 @@ def test_delete_todo(create_todo):
     assert "detail" in deleted_data
     assert deleted_data["detail"] == "Todo not found"
     assert isinstance(deleted_data["detail"], str)
+
+def test_check_db_after_delete(db: Session, create_todo):
+
+    todo_id = create_todo
+
+    todo_in_db = db.query(TodoItem).filter(TodoItem.id == todo_id).first()
+
+    assert todo_in_db is None
 
 
