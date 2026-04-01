@@ -3,7 +3,7 @@
 I forked this project to practice QA testing.
 
 - I did **not change the development code**.
-- I created **CRUD API tests** in the `tests/` folder, covering **POST, GET, PUT, and DELETE** endpoints.
+- I created **CRUD API tests** in the `tests/` folder, covering **POST, GET, PUT, and DELETE** endpoints, with **database verification after create, update, and delete operations**.
 - I also added **invalid update tests** for PUT requests:
   1. **Nonexistent ID** → expects `404 Todo not found`
   2. **Existing ID with no JSON body** → expects `422 field required`
